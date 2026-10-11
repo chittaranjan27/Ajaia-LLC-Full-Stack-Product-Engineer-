@@ -127,21 +127,21 @@ To verify the application with two separate test accounts:
 
 ### Step 2: Account Creation & Test Credentials
 Users can register directly via the Sign Up tab or use pre-configured test accounts:
-- **Account A (Owner)**: `alice@ajaia.io` / `Password123!`
-- **Account B (Collaborator)**: `bob@ajaia.io` / `Password123!`
+- **Account A (Owner)**: `user1@example.com` / `Password123!`
+- **Account B (Collaborator)**: `user2@example.com` / `Password123!`
 
 ### Step 3: Verification Matrix
-1. **Creation**: As Account A, click **New Document** or **Import File**. Title the document "Q4 Strategy".
-2. **Sharing**: Click **Share** in the editor. Enter `bob@ajaia.io`, choose **Viewer**, and submit.
-3. **Shared with Me**: Switch to Account B. The document appears under **Shared with Me**.
+1. **Creation**: As Account A (`user1@example.com`), click **New Document** or **Import File**. Title the document "Q4 Strategy".
+2. **Sharing**: Click **Share** in the editor. Enter `user2@example.com`, choose **Viewer**, and submit.
+3. **Shared with Me**: Switch to Account B (`user2@example.com`). The document appears under **Shared with Me**.
 4. **Viewer Enforcement**: Account B opens the document. Notice:
    - Yellow warning banner: *"You are viewing this document with read-only permissions."*
    - Editor canvas is disabled; typing is blocked.
    - Title input is disabled.
    - "Share" button is hidden.
-5. **Editor Upgrade**: Switch to Account A. Open Share dialog and switch Account B's permission to **Editor**.
+5. **Editor Upgrade**: Switch to Account A. Open Share dialog and switch Account B (`user2@example.com`) to **Editor**.
 6. **Editor Permissions**: Account B reloads. The warning banner disappears. Account B can now edit text and title with autosave enabled. Account B still cannot delete or share the document.
-7. **Revoke Access**: As Account A, click **Revoke access** next to Account B. Account B loses access immediately and the document disappears from their dashboard.
+7. **Revoke Access**: As Account A, click **Revoke access** next to Account B (`user2@example.com`). Account B loses access immediately and the document disappears from their dashboard.
 8. **Unshared Account**: Log in as a third account **Account C**. The document is invisible and cannot be fetched.
 
 ---

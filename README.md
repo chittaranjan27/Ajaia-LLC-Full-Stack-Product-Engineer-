@@ -124,24 +124,27 @@ npm run build
 
 To test secure collaboration across multiple accounts on the [Live Demo](https://ajaia-llc-full-stack-product-engine.vercel.app/):
 
+- **Account A (Owner)**: `user1@example.com` / `Password123!`
+- **Account B (Collaborator)**: `user2@example.com` / `Password123!`
+
 1. **Account A (Owner)**:
-   - Sign up / log in with Account A (e.g. `alice@ajaia.io`).
+   - Log in with Account A (`user1@example.com`).
    - Create a document ("Engineering Roadmap") and type some content.
    - Click the **Share** button in the editor header.
-   - Enter Account B's email (`bob@ajaia.io`), select **Viewer**, and click **Share**.
+   - Enter `user2@example.com`, select **Viewer**, and click **Share**.
 2. **Account B (Viewer)**:
-   - In an Incognito window, log in with Account B (`bob@ajaia.io`).
+   - In an Incognito window, log in with Account B (`user2@example.com`).
    - The document appears under **Shared with Me**.
    - Open the document. The editor is read-only, title renaming is disabled, the Share button is hidden, and a read-only notification banner is displayed.
 3. **Account B (Editor Upgrade)**:
-   - In Account A's window, open the Share dialog and change Account B to **Editor**.
+   - In Account A's window, open the Share dialog and change Account B (`user2@example.com`) to **Editor**.
    - In Account B's window, refresh. Account B can now edit text and rename the title with autosave enabled.
    - Account B cannot delete the document or access the Share dialog.
 4. **Revocation**:
-   - In Account A's window, open Share dialog and click **Revoke access** next to Account B.
+   - In Account A's window, open Share dialog and click **Revoke access** next to Account B (`user2@example.com`).
    - Account B loses access immediately and the document disappears from their dashboard.
 5. **Account C (Unshared)**:
-   - Log in with Account C (`carol@ajaia.io`). The document is invisible and cannot be fetched.
+   - Sign up / log in with a new unshared account. The document is invisible and cannot be fetched.
 
 ---
 
