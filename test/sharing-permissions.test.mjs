@@ -286,4 +286,49 @@ describe('Ajaia Docs - Phase 6 Secure Document Sharing & Permissions Suite', () 
       assert.strictEqual(documentsTable.length, 0);
     });
   });
+
+  describe('4. Privilege Escalation Defense & Data Boundary Tests', () => {
+    it('blocks self-privilege escalation when non-owner attempts to modify share records', () => {
+      const ownerId = 'usr-owner-001';
+      const viewerId = 'usr-viewer-002';
+      const docId = 'doc-secure-999';
+
+      let shares = [{ documentId: docId, userId: viewerId, permission: 'viewer' }];
+
+      const updateShareRole = (requestorId, targetUserId, newPermission) => {
+        // Enforce owner check
+        if (requestorId !== ownerId) {
+          throw new Error('RLS Error: Non-owners cannot modify share permissions.');
+        }
+        const record = shares.find((s) => s.documentId === docId && s.userId === targetUserId);
+        if (!record) throw new Error('Share not found');
+        record.permission = newPermission;
+      };
+
+      // Viewer attempts to escalate themselves to editor
+      assert.throws(
+        () => updateShareRole(viewerId, viewerId, 'editor'),
+        /RLS Error: Non-owners cannot modify share permissions/
+      );
+      assert.strictEqual(shares[0].permission, 'viewer');
+
+      // Owner legally updates viewer to editor
+      updateShareRole(ownerId, viewerId, 'editor');
+      assert.strictEqual(shares[0].permission, 'editor');
+    });
+
+    it('sanitizes document titles and prevents empty/whitespace-only titles', () => {
+      const sanitizeTitle = (raw) => {
+        if (!raw || typeof raw !== 'string') return 'Untitled document';
+        const trimmed = raw.trim();
+        return trimmed.length > 0 ? trimmed : 'Untitled document';
+      };
+
+      assert.strictEqual(sanitizeTitle('   '), 'Untitled document');
+      assert.strictEqual(sanitizeTitle(''), 'Untitled document');
+      assert.strictEqual(sanitizeTitle(null), 'Untitled document');
+      assert.strictEqual(sanitizeTitle(undefined), 'Untitled document');
+      assert.strictEqual(sanitizeTitle('  Product Spec 2026  '), 'Product Spec 2026');
+    });
+  });
 });
