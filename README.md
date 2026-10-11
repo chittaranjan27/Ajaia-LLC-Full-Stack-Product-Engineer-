@@ -4,6 +4,9 @@ A lightweight, high-performance collaborative document editor inspired by Google
 
 Developed as part of the **Ajaia LLC Full Stack Product Engineer** assignment.
 
+🌐 **Live Demo**: [https://ajaia-llc-full-stack-product-engine.vercel.app/](https://ajaia-llc-full-stack-product-engine.vercel.app/)  
+📦 **Repository**: [https://github.com/chittaranjan27/Ajaia-LLC---Full-Stack-Product-Engineer.git](https://github.com/chittaranjan27/Ajaia-LLC---Full-Stack-Product-Engineer.git)
+
 ---
 
 ## 📚 Documentation Index
@@ -60,6 +63,7 @@ Developed as part of the **Ajaia LLC Full Stack Product Engineer** assignment.
 | **Icons & Design** | Lucide React + Tailwind CSS |
 | **Backend & Database** | Supabase (PostgreSQL, Auth, Row Level Security) |
 | **Testing & Linting** | Node.js Test Runner + tsx + oxlint |
+| **Hosting Platform** | Vercel (Edge CDN) |
 
 ---
 
@@ -118,7 +122,7 @@ npm run build
 
 ## Multi-Account Testing Instructions
 
-To test secure collaboration across multiple accounts:
+To test secure collaboration across multiple accounts on the [Live Demo](https://ajaia-llc-full-stack-product-engine.vercel.app/):
 
 1. **Account A (Owner)**:
    - Sign up / log in with Account A (e.g. `alice@ajaia.io`).
@@ -145,14 +149,6 @@ To test secure collaboration across multiple accounts:
 - **Simultaneous Real-Time Collaboration**: Real-time multi-cursor collaboration (CRDTs/OT) is not currently implemented; synchronization uses debounced autosave with monotonic revision concurrency protection.
 - **Offline Mode**: Document changes require an active internet connection to persist to Supabase.
 - **File Types**: File import is scoped to `.txt` and `.md` files up to 1 MB.
-
----
-
-## Deployment Readiness
-The repository is fully configured for static hosting (Vercel, Netlify, Cloudflare Pages):
-- Production bundle builds via `npm run build` outputting clean static assets in `dist/`.
-- Zero backend server dependencies required; all database logic runs on Supabase.
-- *Prepared for deployment.*
 
 ---
 

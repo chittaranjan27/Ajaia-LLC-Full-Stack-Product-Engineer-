@@ -4,6 +4,7 @@
 **Position**: Full Stack Product Engineer  
 **Company**: Ajaia LLC  
 **Repository**: [chittaranjan27/Ajaia-LLC---Full-Stack-Product-Engineer](https://github.com/chittaranjan27/Ajaia-LLC---Full-Stack-Product-Engineer.git)  
+**Live Demo**: [https://ajaia-llc-full-stack-product-engine.vercel.app/](https://ajaia-llc-full-stack-product-engine.vercel.app/)  
 **Date**: October 2026  
 
 ---
@@ -92,9 +93,9 @@ Finished in 34ms on 33 files with 116 rules.
 tsc -b && vite build
 ✓ 2026 modules transformed.
 dist/index.html                   0.99 kB │ gzip:   0.53 kB
-dist/assets/index-BD0zBqzX.css   47.48 kB │ gzip:   8.46 kB
-dist/assets/index-BmJpx61Y.js   915.77 kB │ gzip: 270.55 kB
-✓ built in 1.24s
+dist/assets/index-cbhRI-Tk.css   47.51 kB │ gzip:   8.47 kB
+dist/assets/index-D-mYcyyd.js   915.77 kB │ gzip: 270.55 kB
+✓ built in 1.65s
 ```
 
 ---
@@ -124,10 +125,10 @@ To verify the application with two separate test accounts:
    supabase/migrations/20261011_document_sharing_and_rls.sql
    ```
 
-### Step 2: Account Creation
-1. Start the app: `npm run dev`.
-2. Open `http://localhost:5173` and create **Account A** (e.g., `alice@ajaia.io`).
-3. Open an Incognito window and create **Account B** (e.g., `bob@ajaia.io`).
+### Step 2: Account Creation & Test Credentials
+Users can register directly via the Sign Up tab or use pre-configured test accounts:
+- **Account A (Owner)**: `alice@ajaia.io` / `Password123!`
+- **Account B (Collaborator)**: `bob@ajaia.io` / `Password123!`
 
 ### Step 3: Verification Matrix
 1. **Creation**: As Account A, click **New Document** or **Import File**. Title the document "Q4 Strategy".
@@ -157,12 +158,9 @@ To verify the application with two separate test accounts:
 
 ---
 
-## 8. Deployment Preparation
+## 8. Live Deployment & Hosted Demo
 
-The project is fully prepared for zero-configuration static hosting (Vercel, Netlify, Cloudflare Pages):
-- **Vite Production Output**: Compiled to `dist/` with optimized assets and source maps.
-- **Client Routing**: Ready for SPA routing. A single redirect rule (`/* -> /index.html 200`) ensures client-side routing persistence.
-- **Environment Requirements**:
-  - `VITE_SUPABASE_URL`: Supabase project URL.
-  - `VITE_SUPABASE_ANON_KEY`: Supabase anon/public key.
-- *Note: In accordance with review guidelines, this report prepares the project for deployment without claiming that deployment has occurred.*
+- **Live Demo URL**: [https://ajaia-llc-full-stack-product-engine.vercel.app/](https://ajaia-llc-full-stack-product-engine.vercel.app/)
+- **Hosting Platform**: Vercel (Edge CDN)
+- **SPA Routing Configuration**: `vercel.json` rewrite (`/* -> /index.html`)
+- **Backend Infrastructure**: Supabase Cloud with PostgreSQL Row Level Security (RLS) policies
